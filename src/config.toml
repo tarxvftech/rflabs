@@ -1,0 +1,26 @@
+baseURL = "https://rflabs.tarxvf.tech/"
+languageCode = "en-us"
+title = "RF Labs Directory"
+theme = "black-and-light"
+canonifyurls = true
+
+pygmentsstyle       = "bw"
+pygmentscodefences  = true
+
+[params]
+  sitename = "RF Labs Directory"
+  disableWebFonts = true
+
+[[menu.main]]
+    name = "About"
+    url  = "/about"
+#[[menu.main]]
+#    name = "Map"
+#    url  = "/map"
+#[[menu.main]]
+#    name = "Projects"
+#    url  = ""
+#[[menu.main]]
+#    name = "Resume"
+#    url  = ""
+

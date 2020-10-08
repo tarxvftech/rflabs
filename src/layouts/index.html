@@ -1,0 +1,78 @@
+{{ partial "header.html" . }}
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.0-rc.3/dist/leaflet.css" />
+<section id=content>
+  <div id="map" style="min-height: 400px;">Loading...</div>
+</section>
+<script src="https://unpkg.com/leaflet@1.0.0-rc.3/dist/leaflet.js"></script>
+    <script>
+      var mymap = L.map('map').setView([0,0], 1);
+
+      var Stamen_TonerLite = L.tileLayer('https://stamen-tiles-{s}.a.ssl.fastly.net/toner-lite/{z}/{x}/{y}{r}.{ext}', {
+              attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+              subdomains: 'abcd',
+              minZoom: 0,
+              maxZoom: 20,
+              ext: 'png'
+            });
+      Stamen_TonerLite.addTo(mymap);
+
+      function maidenhead_precision_divchar( precision ){
+        if( precision == 0 ){
+          return [18,'A'];
+        } else if ( precision %2 == 1) {
+          return [10,'0'];
+        } else {
+          return [24,'a'];
+        }
+      }
+      function maidenhead_to_latlon( locstring ){
+        var lat = 0;
+        var lon = 0;
+        var latdiv = 1;
+        var londiv = 1;
+        for( var i = 0; i < locstring.length; i++ ){
+          var precision = parseInt(i/2);
+          var [div,divchar] = maidenhead_precision_divchar(precision);
+          var charval = parseFloat(locstring.charCodeAt(i) - divchar.charCodeAt(0));
+          //console.log("divs:",londiv,latdiv);
+          //console.log("i,prec,div,divchar",i,precision,div,divchar);
+          //console.log("stringvals",locstring[i],locstring.charCodeAt(i),divchar.charCodeAt(0));
+          if( i%2 == 0 ){ // lon
+            londiv *= div;
+            lon += (charval / londiv)*360;
+          } else { //lat
+            latdiv *= div;
+            lat += (charval / latdiv)*180;
+          }
+          //console.log(lat,lon);
+        }
+        lon -= 180;
+        lat -= 90;
+        return {lat:lat,lon:lon};
+      }
+      var directory = {{ $.Site.Data.locations.labs }};
+      console.log(maidenhead_to_latlon("FN42ip16"));
+      console.log(maidenhead_to_latlon("JJ00aa"));
+      for( var lab of directory ){
+        if( lab.location.length > 2 ){
+          var pos = maidenhead_to_latlon(lab.location);
+        } else {
+          var pos = {lat:lab.location[0], lon:lab.location[1]};
+        }
+        var marker = L.marker([pos.lat, pos.lon]).addTo(mymap);
+        var s = `<h4>${lab.name}</h4>`+
+                `<label>Contact <br>`+
+                ` Phone: <span>${lab.contact.phone}</span><br>`+
+                ` Email: <span>${lab.contact.email}</span><br>`+
+                `</label><br>`+
+                `price: ${lab.price}<br>`+
+                `schedule: ${lab.schedule}<br>`
+                ;
+        marker.bindPopup(s);
+      }
+
+    </script>
+
+{{ partial "footer.html" . }}
+

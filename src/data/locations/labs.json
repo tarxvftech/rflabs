@@ -1,0 +1,55 @@
+[
+	{
+		"name":"TARXVF.TECH / W2FBI",
+		"location":"FN41sq",
+		"price":"free for amateurs",
+		"schedule":"by appointment",
+		"contact":{
+			"email": "rflab _at_ tarxvf _dot_ tech",
+			"name": "Mike, W2FBI",
+			"phone": "(Please email)"
+		},
+		"equipment":[
+			"specan",
+			"oscilloscope",
+			"sdr",
+			"hot air",
+			"soldering"
+		]
+	},
+	{
+		"name":"Framingham MakerSpace (example)",
+		"location":[42.324095, -71.400947],
+		"equipment_url":"https://www.framinghammakerspace.org/facilities-equipment/34-multi-purpose-area",
+		"main_url":"https://www.framinghammakerspace.org/",
+		"price":"members only",
+		"schedule":"members only",
+		"contact":{
+			"email": "info at framinghammakerspace dot org",
+			"name": "Framingham Makerspace",
+			"phone": "508-834-7588"
+		},
+		"equipment":[
+			"oscilloscope",
+			"soldering",
+			"signal generator"
+		]
+	},
+	{
+		"name":"Dallas Makerspace (example)",
+		"location":[ 32.940792, -96.906212 ],
+		"equipment_url":"",
+		"main_url":"https://dallasmakerspace.org/",
+		"price":"members only",
+		"schedule":"members only",
+		"contact":{
+			"email": "info at dallasmakerspace dot org",
+			"name": "Dallas Makerspace",
+			"phone": "214-699-MKER"
+		},
+		"equipment":[
+			"spectrum analyzer",
+			"soldering"
+		]
+	}
+]
