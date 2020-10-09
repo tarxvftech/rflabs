@@ -4,10 +4,8 @@ kind: pipeline
 type: docker
 
 pipeline:
-  buildimage:
-    context: .
   buildsite:
-    command: hugo --cleanDestinationDir --verbose
+    image: klakegg/hugo:0.75.1-alpine
   deploy:
     image: drillster/drone-rsync
     hosts: [ "murakumo.tarxvf.tech" ]
