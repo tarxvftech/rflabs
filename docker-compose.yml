@@ -5,6 +5,6 @@ services:
       context: .
       dockerfile: Dockerfile.build
     volumes:
-      - "./src:/src"
+      - "./:/src"
     ports:
       - 1313:1313

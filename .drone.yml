@@ -12,7 +12,7 @@ pipeline:
     user: wwwdeploy
     port: 15558
     source: public/
-    target: /var/www/rflabs.tarxvf.tech/
+    target: /srv/http/rflabs.tarxvf.tech/
     delete: true
     secrets: [plugin_key]
     when:
