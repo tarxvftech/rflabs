@@ -1,0 +1,24 @@
+---
+name: default
+kind: pipeline
+type: docker
+
+pipeline:
+  build:
+    image: plugins/hugo
+    settings:
+      hugo_version: 0.75.1
+      validate: true
+  deploy:
+    image: drillster/drone-rsync
+    hosts: [ "murakumo.tarxvf.tech" ]
+    user: wwwdeploy
+    port: 15558
+    source: public/
+    target: /var/www/rflabs.tarxvf.tech/
+    delete: true
+    secrets: [plugin_key]
+    when:
+      branch:
+      - master
+
