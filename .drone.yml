@@ -4,11 +4,10 @@ kind: pipeline
 type: docker
 
 pipeline:
-  build:
-    image: plugins/hugo
-    settings:
-      hugo_version: 0.75.1
-      validate: true
+  buildimage:
+    context: .
+  buildsite:
+    command: hugo --cleanDestinationDir --verbose
   deploy:
     image: drillster/drone-rsync
     hosts: [ "murakumo.tarxvf.tech" ]
