@@ -18,24 +18,6 @@
 		]
 	},
 	{
-		"name":"Framingham MakerSpace (example)",
-		"location":[42.324095, -71.400947],
-		"equipment_url":"https://www.framinghammakerspace.org/facilities-equipment/34-multi-purpose-area",
-		"main_url":"https://www.framinghammakerspace.org/",
-		"price":"members only",
-		"schedule":"members only",
-		"contact":{
-			"email": "info at framinghammakerspace dot org",
-			"name": "Framingham Makerspace",
-			"phone": "508-834-7588"
-		},
-		"equipment":[
-			"oscilloscope",
-			"soldering",
-			"signal generator"
-		]
-	},
-	{
 		"name":"Dallas Makerspace (example)",
 		"location":[ 32.940792, -96.906212 ],
 		"equipment_url":"",

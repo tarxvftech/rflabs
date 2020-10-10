@@ -62,12 +62,14 @@
         }
         var marker = L.marker([pos.lat, pos.lon]).addTo(mymap);
         var s = `<h4>${lab.name}</h4>`+
-                `<label>Contact <br>`+
+                `<label><h5>Contact<h5> <br>`+
+                ` Name: <span>${lab.contact.name}</span><br>`+
                 ` Phone: <span>${lab.contact.phone}</span><br>`+
                 ` Email: <span>${lab.contact.email}</span><br>`+
                 `</label><br>`+
                 `price: ${lab.price}<br>`+
-                `schedule: ${lab.schedule}<br>`
+                `schedule: ${lab.schedule}<br>`+
+                `equipment: <pre>\n${lab.equipment.join('\n')}</pre>`
                 ;
         marker.bindPopup(s);
       }
