@@ -52,4 +52,23 @@
 			"soldering"
 		]
 	}
+	{
+		"name":"M17 Project HQ / SP5WWP",
+		"location":[52.428398, 20.712209],
+		"main_url":"https://m17project.org/",
+		"price":"M17 Project contributors: return shipping fees, others: ask for price",
+		"schedule":"by appointment",
+		"contact":{
+			"email": "w.kaczmarski _at_ teletra _dot_ pl",
+			"name": "Wojciech, SP5WWP",
+			"phone": "(Please email)"
+		},
+		"equipment":[
+			"HP 437B power meter w/ 8485A thermocouple sensor",
+			"Gencomm G7104A spectrum analyzer",
+			"Anritsu S113 w/ 5400-71N50 detector",
+			"HP 8657A signal generator",
+			"HP 53131A counter w/ 3GHz option"
+		]
+	},
 ]
