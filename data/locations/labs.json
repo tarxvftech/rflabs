@@ -51,7 +51,7 @@
 			"spectrum analyzer",
 			"soldering"
 		]
-	}
+	},
 	{
 		"name":"M17 Project HQ / SP5WWP",
 		"location":[52.428398, 20.712209],
@@ -70,5 +70,5 @@
 			"HP 8657A signal generator",
 			"HP 53131A counter w/ 3GHz option"
 		]
-	},
+	}
 ]
