@@ -22,10 +22,7 @@ or, email me and I'm happy to do it for you ( rflabs at tarxvf dot tech ).
 
 Note: Makerspaces may be listed here, but ideally only if they have
 day passes or some other ad-hoc use of their RF equipment without a
-full membership.  I've listed a few just to jump start the directory,
-even though they appear to be restricted to members only.  Later I intend
-to remove them, as I'd like this list to be only for places that don't
-require a monthly membership.
+full membership.  
 
 Members-only makerspaces are best found at https://wiki.hackerspaces.org/Hackerspaces
 
