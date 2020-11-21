@@ -12,8 +12,5 @@ Source is hosted at
 
 If you'd like to be listed as having test equipment that you are willing
 to share, lend, or instruct hams with, send a pull request following
-the examples in the `data/locations/labs.json` file.  
-If it builds, I'll accept it and it'll get pushed to the website.
+the examples of entries in the `data/locations/labs.json` file.  
 
-Note: Currently it has two makerspaces that are members only. They are
-there only to show a few more examples.
