@@ -10,13 +10,13 @@
 			"phone": "(Please email)"
 		},
 		"equipment":[
-			"Siglent SSA3021X+",
-			"Siglent SDS1104X-E",
+			"Spectrum analyzer: Siglent SSA3021X+",
+			"100MHz oscilloscope: Siglent SDS1104X-E",
 			"NanoVNA 1 and 2",
 			"LimeSDR",
 			"HackRF+Portapack",
-			"rtl-sdrs available to loan",
-			"hot air soldering",
+			"rtl-sdrs",
+			"hot air rework",
 			"soldering",
 			"stereo microscope"
 		]
