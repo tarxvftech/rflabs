@@ -1,8 +1,8 @@
 [
 	{
-		"name":"TARXVF.TECH / W2FBI",
+		"name":"TARXVF.TECH",
 		"location":"FN41sq",
-		"price":"free for amateurs",
+		"price":"free for amateurs, negotiable for commercial",
 		"schedule":"by appointment",
 		"contact":{
 			"email": "rflab _at_ tarxvf _dot_ tech",
@@ -10,28 +10,15 @@
 			"phone": "(Please email)"
 		},
 		"equipment":[
-			"specan",
-			"oscilloscope",
-			"sdr",
-			"hot air",
-			"soldering"
-		]
-	},
-	{
-		"name":"Dallas Makerspace (example)",
-		"location":[ 32.940792, -96.906212 ],
-		"equipment_url":"",
-		"main_url":"https://dallasmakerspace.org/",
-		"price":"members only",
-		"schedule":"members only",
-		"contact":{
-			"email": "info at dallasmakerspace dot org",
-			"name": "Dallas Makerspace",
-			"phone": "214-699-MKER"
-		},
-		"equipment":[
-			"spectrum analyzer",
-			"soldering"
+			"Siglent SSA3021X+",
+			"Siglent SDS1104X-E",
+			"NanoVNA 1 and 2",
+			"LimeSDR",
+			"HackRF+Portapack",
+			"rtl-sdrs available to loan",
+			"hot air soldering",
+			"soldering",
+			"stereo microscope"
 		]
 	},
 	{
