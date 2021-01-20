@@ -14,3 +14,8 @@ If you'd like to be listed as having test equipment that you are willing
 to share, lend, or instruct hams with, send a pull request following
 the examples of entries in the `data/locations/labs.json` file.  
 
+
+Mike note to self:
+------------------
+
+CI builds from personal server events, not github events, so make sure to sync those.
