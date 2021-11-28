@@ -7,18 +7,39 @@
 		"contact":{
 			"email": "rflab _at_ tarxvf _dot_ tech",
 			"name": "Mike, W2FBI",
-			"phone": "(Please email)"
+			"phone": "(Please email)",
+			"website":"https://tarxvf.tech/"
 		},
 		"equipment":[
-			"Spectrum analyzer: Siglent SSA3021X+",
-			"100MHz oscilloscope: Siglent SDS1104X-E",
-			"NanoVNA 1 and 2",
+			"Rb/GPSDO + freq counter + siggen (pulse/sin/tri) (cal'd)",
+			"Agilent E4418B Power Meter (Probes: 8481A [-30dBm,+20dBm] 100MHz to 18GHz (cal'd)",
+
+			"Siglent SSA3021X+ Spectrum Analyzer (2.1GHz) (With TG) (+Cal Kit)",
+			"Siglent SDS1104X-E (100MHz)",
+			"EEZ BB3 Programmable Power Supply",
+			"Mini-Circuits SSG-4000HP (Pulsed RF generator, 500mW and up to 4GHz",
+			"ERASynth Micro",
+			"MoRFeus LO/mixer",
+
+			"Quick 861DW Hot Air Rework Station",
+			"Hakko desoldering tweezers",
+			"Hakko SMT/PTH soldering and all the usual kit",
+			"Iron tip temp sensor",
+			"Amscope tri/stereo microscope",
+
+			"Gepetto Electronics OCXO/GPSDO 10MHz (+10dBm sine, ~0.1ppb, < 1e-11 @ 𝜏 1s) https://www.tindie.com/products/nsayer/gps-disciplined-ocxo/",
+			"ElectronikIdee TCXO/GPSDO 10MHz/40MHz (loanable) (1dBm sine, <1ppb, 1e-9 10Mhz)(1.35Vpp 40Mhz) https://www.tindie.com/products/tobiw/gps-disciplined-4010mhz-frequency-source-0001ppm/ ",
+			"Brandywine QFS-106 OCXO 10MHz, rack mount (loanable)",
+
+			"NanoVNA 1 (1.5GHz), NanoVNA 2 (3GHz)",
 			"LimeSDR",
 			"HackRF+Portapack",
-			"rtl-sdrs",
-			"hot air rework",
-			"soldering",
-			"stereo microscope"
+			"8+ RTL-SDRs, including 4+ NeSDR SMART with 0.5ppm TCXO",
+
+			"Attenuators and dummy loads for up to 50W",
+			"SMA/N/BNC cables and adapters",
+			"Wired network + internet access",
+			"+Typical ham radio station equipment, small PLA 3d printer, electronics reference books, etc"
 		]
 	},
 	{
