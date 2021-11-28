@@ -16,7 +16,7 @@ is about learning and experimentation, and the people who have listed
 themselves here are willing to help - just be respectful of their time.
 
 Equipment owners that are willing to be contacted by amateurs
-in need of some quick testing, please visit pull request
+in need of some quick testing, please patch/pull request
 https://github.com/tarxvftech/rflabs to add yourself to the listing;
 or, email me and I'm happy to do it for you ( rflabs at tarxvf dot tech ).
 
@@ -29,3 +29,7 @@ Members-only makerspaces are best found at https://wiki.hackerspaces.org/Hackers
 
 As for how to use RF test equipment - start here: https://www.ab4oj.com/test/main.html
 
+
+As for how it looks - it's very simple right now because of how few
+entries there are in the directory.  I'd _love_ to spend more time on
+this website, so list your lab and give me the excuse!
