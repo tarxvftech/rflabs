@@ -1,47 +1,53 @@
 {{ partial "header.html" . }}
 
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.0-rc.3/dist/leaflet.css" />
+<style>
+label {
+  font-weight: bold;
+}
+</style>
 <section id=content>
   <div id="map" style="min-height: 400px;">Loading...</div>
+  <div id="labdetails" style="min-height: 400px;">Click on a point on map for details</div>
 </section>
 <script src="https://unpkg.com/leaflet@1.0.0-rc.3/dist/leaflet.js"></script>
-    <script>
-      var mymap = L.map('map').setView([0,0], 1);
-      var ico = L.icon({
-              iconUrl: 'https://unpkg.com/leaflet@1.0.0-rc.3/dist/images/marker-icon-2x.png',
-              shadowUrl: 'https://unpkg.com/leaflet@1.0.0-rc.3/dist/images/marker-shadow.png',
-              iconSize:     [25, 41], // size of the icon
-              shadowSize:   [41, 41], // size of the shadow
-              iconAnchor:   [20, 15], // point of the icon which will correspond to marker's location
-              //shadowAnchor: [4, 62],  // the same for the shadow
-              //popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
-            });
+<script>
+  var mymap = L.map('map').setView([0,0], 1);
+  var ico = L.icon({
+      iconUrl: 'https://unpkg.com/leaflet@1.0.0-rc.3/dist/images/marker-icon-2x.png',
+      shadowUrl: 'https://unpkg.com/leaflet@1.0.0-rc.3/dist/images/marker-shadow.png',
+      iconSize:     [25, 41], // size of the icon
+      shadowSize:   [41, 41], // size of the shadow
+      iconAnchor:   [12, 30], // point of the icon which will correspond to marker's location
+      //shadowAnchor: [4, 62],  // the same for the shadow
+      //popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
+    });
 
 
-      var Stamen_TonerLite = L.tileLayer('https://stamen-tiles-{s}.a.ssl.fastly.net/toner-lite/{z}/{x}/{y}{r}.{ext}', {
-              attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-              subdomains: 'abcd',
-              minZoom: 0,
-              maxZoom: 20,
-              ext: 'png'
-            });
-      Stamen_TonerLite.addTo(mymap);
+  var Stamen_TonerLite = L.tileLayer('https://stamen-tiles-{s}.a.ssl.fastly.net/toner-lite/{z}/{x}/{y}{r}.{ext}', {
+      attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+      subdomains: 'abcd',
+      minZoom: 0,
+      maxZoom: 20,
+      ext: 'png'
+    });
+  Stamen_TonerLite.addTo(mymap);
 
-      function maidenhead_precision_divchar( precision ){
-        if( precision == 0 ){
+  function maidenhead_precision_divchar( precision ){
+      if( precision == 0 ){
           return [18,'A'];
         } else if ( precision %2 == 1) {
-          return [10,'0'];
-        } else {
-          return [24,'a'];
-        }
-      }
-      function maidenhead_to_latlon( locstring ){
-        var lat = 0;
-        var lon = 0;
-        var latdiv = 1;
-        var londiv = 1;
-        for( var i = 0; i < locstring.length; i++ ){
+            return [10,'0'];
+          } else {
+              return [24,'a'];
+            }
+    }
+  function maidenhead_to_latlon( locstring ){
+      var lat = 0;
+      var lon = 0;
+      var latdiv = 1;
+      var londiv = 1;
+      for( var i = 0; i < locstring.length; i++ ){
           var precision = parseInt(i/2);
           var [div,divchar] = maidenhead_precision_divchar(precision);
           var charval = parseFloat(locstring.charCodeAt(i) - divchar.charCodeAt(0));
@@ -49,42 +55,60 @@
           //console.log("i,prec,div,divchar",i,precision,div,divchar);
           //console.log("stringvals",locstring[i],locstring.charCodeAt(i),divchar.charCodeAt(0));
           if( i%2 == 0 ){ // lon
-            londiv *= div;
-            lon += (charval / londiv)*360;
-          } else { //lat
-            latdiv *= div;
-            lat += (charval / latdiv)*180;
-          }
+              londiv *= div;
+              lon += (charval / londiv)*360;
+            } else { //lat
+                latdiv *= div;
+                lat += (charval / latdiv)*180;
+              }
           //console.log(lat,lon);
         }
-        lon -= 180;
-        lat -= 90;
-        return {lat:lat,lon:lon};
-      }
-      var directory = {{ $.Site.Data.locations.labs }};
-      console.log(maidenhead_to_latlon("FN42ip16"));
-      console.log(maidenhead_to_latlon("JJ00aa"));
-      for( var lab of directory ){
-        if( lab.location.length > 2 ){
-          var pos = maidenhead_to_latlon(lab.location);
-        } else {
-          var pos = {lat:lab.location[0], lon:lab.location[1]};
-        }
-        var marker = L.marker([pos.lat, pos.lon],{icon:ico}).addTo(mymap);
-        var s = `<h4>${lab.name}</h4>`+
-                `<label><h5>Contact<h5> <br>`+
-                ` Name: <span>${lab.contact.name}</span><br>`+
-                ` Phone: <span>${lab.contact.phone}</span><br>`+
-                ` Email: <span>${lab.contact.email}</span><br>`+
-                `</label><br>`+
-                `price: ${lab.price}<br>`+
-                `schedule: ${lab.schedule}<br>`+
-                `equipment: <pre>\n${lab.equipment.join('\n')}</pre>`
-                ;
-        marker.bindPopup(s);
-      }
+      lon -= 180;
+      lat -= 90;
+      return {lat:lat,lon:lon};
+    }
+  var directory = {{ $.Site.Data.locations.labs }};
+  console.log(maidenhead_to_latlon("FN42ip16"));
+  console.log(maidenhead_to_latlon("JJ00aa"));
+  console.log(directory);
+  function setDetails(element_id, name){
+    console.log(element_id, name);
+    return function(){
+      let lab = directory[name];
+      let detes = document.querySelector(element_id);
+      console.log(detes);
+      let s = genLabSummary(name);
+      detes.innerHTML = `${s} <br> <h3>Equipment:</h3> <pre>\n${lab.details.join('\n')}</pre>`;
+    }
+  }
+  function genLabSummary(name){
+      let lab = directory[name];
+      var s = `<h2>${lab.name}</h2>`+
+        `<label>Name:</label> <span>${lab.contact.name}</span><br>`+
+        `<label>Phone:</label> <span>${lab.contact.phone}</span><br>`+
+        `<label>Email:</label> <span>${lab.contact.email}</span><br>`+
+        `<label>Website:</label> <a href="${lab.contact.website}">${lab.contact.website}</a><br>`+
 
-    </script>
+        `<label>Price:</label> <span>${lab.price}</span><br>`+
+        `<label>Schedule:</label> <span>${lab.schedule}</span><br>`
+        ;
+      return s;
+  }
+  for( var name in directory ){
+      let lab = directory[name];
+      console.log(lab);
+      let pos;
+      if( lab.location.length > 2 ){
+        pos = maidenhead_to_latlon(lab.location);
+      } else {
+        pos = {lat:lab.location[0], lon:lab.location[1]};
+      }
+      var marker = L.marker([pos.lat, pos.lon],{icon:ico}).addTo(mymap);
+        //marker.bindPopup(s);
+      marker.on('click', setDetails('#labdetails',name));
+  }
+
+</script>
 
 {{ partial "footer.html" . }}
 
