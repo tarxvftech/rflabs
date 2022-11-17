@@ -48,33 +48,5 @@
 			"Wired network + internet access",
 			"+Typical ham radio station equipment, small PLA 3d printer, electronics reference books, etc"
 		]
-	},
-	"SP5WWP":{
-		"name":"M17 Project HQ / SP5WWP",
-		"location":[52.428398, 20.712209],
-		"price":"M17 Project contributors: return shipping fees, others: ask for price",
-		"schedule":"by appointment",
-		"contact":{
-			"email": "w.kaczmarski _at_ teletra _dot_ pl",
-			"name": "Wojciech, SP5WWP",
-			"phone": "(Please email)",
-			"website":"https://m17project.org/"
-		},
-		"details":[
-			"Gencomm G7104A spectrum analyzer",
-			"HP 437B power meter w/ 8485A thermocouple sensor",
-			"Anritsu S113 w/ 5400-71N50 detector",
-			"HP 8657A signal generator",
-			"HP 53131A counter w/ 3GHz option",
-			"HP 34401A multimeter",
-			"HP 33120A arbitrary waveform generator",
-			"Weinschel WA1425-4 0..12.4GHz cal load",
-			"100W R&S dummy load",
-			"Wiltron 75KC50 10MHz..40GHz RF detector",
-			"40dB 10w 3ghZ attenuator",
-			"30dB 100W 3GHz attenuator",
-			"Handful of small 1..2W 10..50dB Narda and Mini-Circuits 18GHz attenuators",
-			"Narda 3020 250..1000MHz bi-directional coaxial coupler"
-		]
 	}
 }
